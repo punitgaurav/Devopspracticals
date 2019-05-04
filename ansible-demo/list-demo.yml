@@ -1,0 +1,21 @@
+---
+hosts: localhost
+
+
+tasks:
+  -  debug: msg-"Append two lists or Merge two lists"
+
+  -set_fact:
+     list_one:
+       - 1
+       - 2
+       - 3
+  - set_fact:
+      list_two:
+        - 4
+        - 5
+        - 6
+  - name: merging lists
+    set_fact: merged_list="{{ list_one + list_two }}"
+
+  - debug: var=merged_list
